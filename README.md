@@ -13,8 +13,7 @@
 
 ## 🚀 快速开始
 ```bash
-# 授予执行权限
-chmod +x system_init.sh
-
-# 执行初始化脚本
-./system_init.sh
+# git clone
+pkg update && pkg install -y curl &&
+curl -fsSL -o deploy_local_to_remote_ssh_keys.sh https://raw.githubusercontent.com/emix1984/android_termux/refs/heads/main/system_init.sh &&
+bash system_init.sh
