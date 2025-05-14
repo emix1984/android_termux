@@ -19,6 +19,20 @@ env
 venv
 
 # other
+# 排除系统文件
+.DS_Store
+._*
+
+# 排除日志和临时文件
+*.log
+*.tmp
+*.swp
+
+# 排除本地环境文件
+.env
+venv/
+
+# 保留现有的.gitignore内容（如果有的话）
 .DS_Store
 
 # sphinx docs 
