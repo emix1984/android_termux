@@ -12,7 +12,7 @@
 - 🧹 自动清理软件包缓存
 
 ## 🚀 快速开始
-初始化系统配置和环境
+初始化系统配置和环境 - 执行后需要重启termux app
 ```bash
 sed -i 's@^\(deb.*stable main\)$@#\1\ndeb https://mirrors.tuna.tsinghua.edu.cn/termux/apt/termux-main stable main@' $PREFIX/etc/apt/sources.list
 apt update -y && apt upgrade -y && pkg install -y curl &&
@@ -20,7 +20,7 @@ curl -fsSL -o system_init.sh https://raw.githubusercontent.com/emix1984/android_
 bash system_init.sh
 ```
 
-恢复termux初始设置
+## 恢复termux初始设置
 ```bash
 rm -rf $PREFIX
 ```
