@@ -13,8 +13,8 @@ check_termux_environment() {
 # 配置存储权限
 configure_storage_permission() {
     echo "配置存储权限..."
-    termux-setup-storage
-    if [ $? -ne 0 ]; then
+    yes | termux-setup-storage  # 新增yes管道自动确认
+    if [ ${PIPESTATUS[0]} -ne 0 ]; then
         echo "存储权限配置失败，请手动运行 termux-setup-storage"
         exit 1
     fi
@@ -88,7 +88,7 @@ EOF
 # 配置 Python 开发环境
 config_pythondev() {
     echo "安装 Python 开发所需的软件包..."
-    pkg install -y clang
+    pkg install -y clang libxml2 libxslt libffi zlib
 
     if [ $? -ne 0 ]; then
         echo "Python 开发所需软件包安装失败"
