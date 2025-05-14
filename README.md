@@ -15,7 +15,7 @@
 初始化系统配置和环境
 ```bash
 sed -i 's@^\(deb.*stable main\)$@#\1\ndeb https://mirrors.tuna.tsinghua.edu.cn/termux/apt/termux-main stable main@' $PREFIX/etc/apt/sources.list
-apt update -y && apt upgrade && pkg install -y curl &&
+apt update -y && apt upgrade -y && pkg install -y curl &&
 curl -fsSL -o system_init.sh https://raw.githubusercontent.com/emix1984/android_termux/refs/heads/main/system_init.sh &&
 bash system_init.sh
 ```

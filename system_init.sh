@@ -13,8 +13,8 @@ check_termux_environment() {
 # 配置存储权限
 configure_storage_permission() {
     echo "配置存储权限..."
-    yes | termux-setup-storage  # 新增yes管道自动确认
-    if [ ${PIPESTATUS[0]} -ne 0 ]; then
+    termux-setup-storage
+    if [ $? -ne 0 ]; then
         echo "存储权限配置失败，请手动运行 termux-setup-storage"
         exit 1
     fi
