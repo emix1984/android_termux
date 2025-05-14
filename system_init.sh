@@ -100,9 +100,10 @@ config_pythondev() {
     echo 'export CFLAGS="-I/data/data/com.termux/files/usr/include"' >> ~/.bashrc
     source ~/.bashrc
     
-    # 新增版本显示
-    echo "当前Python版本：$(python3 --version)"
-    echo "当前pip版本：$(pip3 --version)"
+    # 新增.bashrc文件内容展示
+    echo -e "\n\033[1;33m当前.bashrc文件内容：\033[0m"
+    cat ~/.bashrc | tail -n 4
+    echo -e "\n\033[1;33mPython环境变量配置完成！\033[0m"
 }
 
 # 清理软件包缓存
@@ -125,8 +126,13 @@ main() {
     config_pythondev
     clean_pkg_cache  # 新增清理模块
     
-    echo "初始化完成！存储剩余空间：$(df -h $PREFIX | awk 'NR==2{print $4}')"
-    echo "当前用户名：$(whoami)"
+    echo -e "\n\033[1;36m✅ 初始化完成！\033[0m"
+    echo "=============================================="
+    printf "%-18s 🖥️  %s\n" "系统用户:" "$(whoami)"
+    printf "%-18s 💾 %s\n" "存储剩余空间:" "$(df -h $PREFIX | awk 'NR==2{print $4}')"
+    printf "%-18s 🐍  \033[33m%s\033[0m\n" "Python版本:" "$(python3 --version 2>&1)"
+    printf "%-18s 📦  \033[33m%s\033[0m\n" "pip版本:" "$(pip3 --version | cut -d ' ' -f 1-2)"
+    echo "=============================================="
 }
 
 # 执行主函数
