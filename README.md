@@ -15,5 +15,5 @@
 ```bash
 # git clone
 pkg update && pkg install -y curl &&
-curl -fsSL -o deploy_local_to_remote_ssh_keys.sh https://raw.githubusercontent.com/emix1984/android_termux/refs/heads/main/system_init.sh &&
+curl -fsSL -o system_init.sh https://raw.githubusercontent.com/emix1984/android_termux/refs/heads/main/system_init.sh &&
 bash system_init.sh
