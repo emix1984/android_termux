@@ -22,10 +22,26 @@ configure_storage_permission() {
 
 # 更新包管理器
 update_package_manager() {
+    echo "更换清华镜像源..."
+    sed -i 's@^\(deb.*stable main\)$@#\1\ndeb https://mirrors.tuna.tsinghua.edu.cn/termux/apt/termux-main stable main@' $PREFIX/etc/apt/sources.list
+    
+    if [ $? -ne 0 ]; then
+        echo "镜像源替换失败"
+        exit 1
+    fi
+    
     echo "更新包管理器..."
     pkg update -y
     if [ $? -ne 0 ]; then
         echo "包管理器更新失败"
+        exit 1
+    fi
+    
+    # 新增升级操作
+    echo "升级所有软件包..."
+    pkg upgrade -y
+    if [ $? -ne 0 ]; then
+        echo "软件包升级失败"
         exit 1
     fi
 }
