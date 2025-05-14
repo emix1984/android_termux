@@ -1,0 +1,50 @@
+# Ignore files & directories
+.DS_Store
+
+# byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# tests and coverage
+*.pytest_cache
+.coverage
+
+# database & logs
+*.db
+*.sqlite3
+*.log
+
+# venv
+env
+venv
+
+# other
+# 排除系统文件
+.DS_Store
+._*
+
+# 排除日志和临时文件
+*.log
+*.tmp
+*.swp
+
+# 排除本地环境文件
+.env
+venv/
+
+# 保留现有的.gitignore内容（如果有的话）
+.DS_Store
+
+# sphinx docs 
+_build
+_static
+_templates
+
+# javascript
+package-lock.json
+.vscode/symbols.json
+
+apps/static/assets/node_modules
+apps/static/assets/yarn.lock
+apps/static/assets/.temp
+
