@@ -138,6 +138,17 @@ config_pythondev() {
     echo "当前pip版本：$(pip3 --version)"
 }
 
+# 清理软件包缓存
+clean_pkg_cache() {
+    echo "清理软件包缓存..."
+    pkg clean -y && pkg autoremove -y
+    if [ $? -ne 0 ]; then
+        echo "缓存清理失败"
+        exit 1
+    fi
+    rm -rf $HOME/.cache/* 2>/dev/null
+}
+
 # 主函数 - 执行所有模块
 main() {
     check_termux_environment
