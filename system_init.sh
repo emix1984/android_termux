@@ -141,7 +141,7 @@ config_pythondev() {
 # 清理软件包缓存
 clean_pkg_cache() {
     echo "清理软件包缓存..."
-    pkg clean -y && pkg autoremove -y
+    pkg clean -y && apt autoremove -y
     if [ $? -ne 0 ]; then
         echo "缓存清理失败"
         exit 1
