@@ -32,6 +32,8 @@ install_common_packages() {
         zip \
         python3 \
         termux-services \
+        proot \
+        proot-distro \
         tmux  # 追加tmux
 
     if [ $? -ne 0 ]; then
